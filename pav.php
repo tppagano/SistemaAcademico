@@ -21,5 +21,7 @@
 		$nome = trim($_POST["pav"]);
 		// chamando a função query da classe banco para adicionar ao banco de dados
 		$b -> query("INSERT INTO pavilhao (nome) VALUES ('$nome')");
-	}else echo "<meta HTTP-EQUIV='Refresh' CONTENT='0;URL = index1.php'>";
-?>
+		echo "<meta HTTP-EQUIV='Refresh' CONTENT='0;URL = interface_pavilhao.php'>";
+		echo "<script>alert('Pavilhao adicionado com sucesso')</script>";
+	}else echo "<meta HTTP-EQUIV='Refresh' CONTENT='0;URL = index.php'>";
+?>|
