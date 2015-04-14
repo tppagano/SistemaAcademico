@@ -61,6 +61,14 @@ CREATE TABLE professor (
     CONSTRAINT fk_area FOREIGN KEY (id_area) REFERENCES area (id)
 )ENGINE=InnoDB  DEFAULT CHARSET=latin1;
 
+CREATE TABLE usuario (
+    login VARCHAR(20) NOT NULL,
+    senha VARCHAR(200),
+    CONSTRAINT pk_professor PRIMARY KEY (login)
+)ENGINE=InnoDB  DEFAULT CHARSET=latin1;
+
+INSERT INTO usuario (login,senha) VALUES ('u1','senha');
+select login,senha from usuario where login = "u1" and senha = "senha";
 
 select * from sala;
 
