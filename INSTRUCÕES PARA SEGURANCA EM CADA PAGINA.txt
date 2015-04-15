@@ -1,0 +1,28 @@
+Para permitir que apenas pessoas logadas tenham acesso a pagina usando
+a classe Controle_acesso. Basta colocar no inicio da pagina php.
+
+
+No inicio do arquivo.
+
+<?php
+	
+	include_once("controle_acesso.php");
+	$c = new controle_acesso();
+	if(!($c -> esta_logado())) echo "<meta HTTP-EQUIV='Refresh' CONTENT='0;URL = index.php'>";
+	else {
+
+?>
+
+
+E no final do arquivo
+
+
+<?php
+	}
+?>
+
+
+
+Com isso apenas pessoas logadas podem ter acesso a pagina. 
+Essa classe ainda não veta que pessoas logadas acessem paginas 
+acessando-as via URL!
