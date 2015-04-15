@@ -15,7 +15,7 @@
 	<body>
 		<div class="panel-default">
 			<div class = "divCenter">
-				<form action="login.php" method="post" onsubmit="return verifica()">
+				<form action="login.php" method="post" onsubmit="return verificaLogin()">
 					<center><img src="img/logoUFRB.jpg"  width="130px" height="130px"></center><br>
 					<div id="alertas"></div>
 					<div id="err"></div>

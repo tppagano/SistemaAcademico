@@ -1,4 +1,4 @@
-function verifica(){
+function verificaLogin(){
   
   var check = true;
   sms = "";
