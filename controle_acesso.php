@@ -1,5 +1,13 @@
 <?php
 	
+	/**
+	Classe responsavel pelo controle de acesso do site ou sistema, se utilizando de SESSION.
+	Criada por Marco Aurélio M. Vieira
+
+	Ultima versão: 15 de abril de 2015
+
+*/
+
 	include_once ("banco/banco.php");
 
 	class Controle_acesso{
@@ -31,8 +39,24 @@
 		    return false;	
 		}
 
+		function pagina_anterior($pag){
+			$_SESSION["pag"] = $pag;
+		}
+
+		function passou_pela_pagina_anterior($pag){
+			if(isset($_SESSION["pag"]) && strcmp($_SESSION["pag"], $pag) == 0){	
+				return true;
+			}
+			return false;
+		}
+
+		function destuir_passagen(){
+			unset($_SESSION["pag"]);
+		}
+
 		function deslogar(){
 			unset($_SESSION["id"]);
+			unset($_SESSION["pag"]);
 		}
 	}
 ?>

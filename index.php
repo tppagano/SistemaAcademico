@@ -6,6 +6,7 @@
 	$c = new controle_acesso();
 	if($c -> esta_logado()) echo "<meta HTTP-EQUIV='Refresh' CONTENT='0;URL = home.php'>";
 	else {
+		$c -> pagina_anterior("login");
 
 ?>
 

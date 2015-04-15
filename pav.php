@@ -12,17 +12,25 @@
 		mostrar uma mensagem de que foi adicionado com sucesso. Deve fazer isso ate hoje de noite
 
 	*/
-		
-	if(isset($_POST["pav"])){
+	include_once ("controle_acesso.php");
+	$c = new Controle_acesso();
+	if(isset($_POST["pav"]) && $c -> passou_pela_pagina_anterior("pav")){
 
 		// incluindo o arquivo do banco de dados
-		include ("banco/banco.php");
+		include_once ("banco/banco.php");
 		// instanciando a classe do banco
 		$b = new database();
 		// pegando o nome e tirando os espaços no inicio e no fim com a funcao "trim"
 		$nome = trim($_POST["pav"]);
 		// chamando a função query da classe banco para adicionar ao banco de dados
 		$b -> query("INSERT INTO pavilhao (nome) VALUES ('$nome')");
+		
+		/** 
+				Deleta a session, fazendo com que a pessoas não possa acessar outra vez 
+				essa pagina
+		*/
+		$c -> destuir_passagen();
+
 		echo "<meta HTTP-EQUIV='Refresh' CONTENT='0;URL = interface_pavilhao.php'>";
 		echo "<script>alert('Pavilhao adicionado com sucesso')</script>";
 	}else echo "<meta HTTP-EQUIV='Refresh' CONTENT='0;URL = index.php'>";

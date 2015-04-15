@@ -9,7 +9,8 @@ No inicio do arquivo.
 	include_once("controle_acesso.php");
 	$c = new controle_acesso();
 	if(!($c -> esta_logado())) echo "<meta HTTP-EQUIV='Refresh' CONTENT='0;URL = index.php'>";
-	else {
+	else {	    
+	     $c -> pagina_anterior("login");
 
 ?>
 
@@ -24,5 +25,46 @@ E no final do arquivo
 
 
 Com isso apenas pessoas logadas podem ter acesso a pagina. 
-Essa classe ainda não veta que pessoas logadas acessem paginas 
-acessando-as via URL!
+
+
+
+
+Essa linha: 
+	     $c -> pagina_anterior("login");
+
+
+
+Serve para proteger o sistema do usuario querer entrar 
+nas paginas .php (as paginas que acessam o banco de dados, como
+a login.php, pav.php etc..) sem passar pela tela anterior!
+Por exemplo, impede que um usuario logado ou não acessa a 
+pagina login.php sem passar pela tela de login.
+
+Para isso funcionar na pagina login. php tem que chamar as funções:
+
+	$c -> passou_pela_pagina_anterior("login");
+
+	$c -> destuir_passagen();
+
+Quando o usuario passou pela tela de login.
+
+
+A função "passou_pela_pagina_anterior("login")" ela verifica se 
+o usuario passou pela tela login.php! Lembrando o parametro de entrada
+nesse caso : "login", tem que ser o mesmo parametro que foi colocado
+na função : "pagina_anterior("login");".
+
+Essa função  "destuir_passagen()" ela "tira" a permissão do usuario 
+voltar a pagina login.php! Depois de ter acesso 1 vez a ela.
+
+
+
+
+Todo esse sistema foi feito usando Session! Existem duas session esse 
+sistema a $_SESSION["id"] usada pra login. 
+E a $_SESSION["pag"], usada para verificar a passagem pela pagina 
+anterior.
+
+
+
+
