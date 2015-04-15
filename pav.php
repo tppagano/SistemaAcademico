@@ -10,7 +10,9 @@
 		
 		Aqui anda existe uma mudança a se fazer que e uma forma de retornar para a pagina de casdastro para 
 		mostrar uma mensagem de que foi adicionado com sucesso. Deve fazer isso ate hoje de noite
+
 	*/
+		
 	if(isset($_POST["pav"])){
 
 		// incluindo o arquivo do banco de dados

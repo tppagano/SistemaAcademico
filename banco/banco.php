@@ -7,7 +7,7 @@ class Database {
 	function __construct(){
 		try{
 			// ALTERAR AQUI OS PARAMETROS DO BANCO
-			$this -> pdo =  new PDO("mysql:host = 127.0.0.1; dbname = salas","root","");
+			$this -> pdo =  new PDO("mysql:host = 127.0.0.1; dbname = salas","root","m31a08r90");
 			$this -> pdo->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);		
 			$stmt = $this -> pdo->prepare("use salas;");
 			$this -> pdo -> setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);

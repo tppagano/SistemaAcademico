@@ -1,6 +1,13 @@
 <!DOCTYPE html>
 
+<?php
+	
+	include_once("controle_acesso.php");
+	$c = new controle_acesso();
+	if($c -> esta_logado()) echo "<meta HTTP-EQUIV='Refresh' CONTENT='0;URL = home.php'>";
+	else {
 
+?>
 
 <html>
 	<?php include("head.html"); ?>	
@@ -22,3 +29,6 @@
 	</body>
 </html>
 
+<?php
+	}
+?>

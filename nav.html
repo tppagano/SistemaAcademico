@@ -1,7 +1,7 @@
 <header style = "margin-left: 10px">
 	<ul class="nav nav-tabs">
 		<li role="presentation" class="dropdown">
-			<a href="index.php" role="button" aria-expanded="false">Principal</a>
+			<a href="home.php" role="button" aria-expanded="false">Principal</a>
 		</li>
 		<li role="presentation" class="dropdown">
 			<a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-expanded="false">
@@ -28,6 +28,19 @@
 			</ul>
 		</li>
 		
+			<li role="presentation" class="dropdown">
+				<a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-expanded="false">
+					Meu Perfil <span class="caret"></span>
+					<ul class="dropdown-menu" role="menu">
+					
+				</ul>
+				</a>
+				<ul class="dropdown-menu" role="menu">
+					<form action="sair.php" id = "out" method="POST">
+						<li><a style = "margin-left: 20px" onclick="sair('out')">Sair</a></li>
+					</form>
+				</ul>
+			</li>	
 	</ul>
 </header>
 

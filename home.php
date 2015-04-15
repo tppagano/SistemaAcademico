@@ -11,6 +11,14 @@
 	Criem seus css na pasta css! E cada pessoas crie seu css! Não esqueçam de importar eles no arquivo head.html.
 
 -->
+<?php
+	
+	include_once("controle_acesso.php");
+	$c = new controle_acesso();
+	if(!($c -> esta_logado())) echo "<meta HTTP-EQUIV='Refresh' CONTENT='0;URL = index.php'>";
+	else {
+
+?>
 
 <html>
 	<?php include("head.html"); ?>	
@@ -22,3 +30,8 @@
 		<?php include("foot.html"); ?>
 	</body>
 </html>
+
+
+<?php
+	}
+?>
