@@ -44,9 +44,7 @@
 		}
 
 		function passou_pela_pagina_anterior($pag){
-			if(isset($_SESSION["pag"]) && strcmp($_SESSION["pag"], $pag) == 0){	
-				return true;
-			}
+			if(isset($_SESSION["pag"]) && strcmp($_SESSION["pag"], $pag) == 0) return true;
 			return false;
 		}
 
