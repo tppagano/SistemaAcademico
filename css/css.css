@@ -3,48 +3,73 @@
     display: table;
     vertical-align: middle;
 }
-
 .left{
 	float: left;
 }
+.right{
+	float: right;
+}
+
+.top{margin-top: 50px;}
+
+.topElementos{margin-top: 20px;}
+
+.size{
+	width: 450px;
+	height: 600px;
+}
+.ph{width: 450px;}
+
+.sizeSmall{
+	width: 450px;
+	height: 300px;
+}
+.little{
+	width: 100px;
+	height: 34px;	
+}
+.sizeNomes{
+	width: 100px;
+}
+
+.sizeTable{
+	width: 800px;
+}
+
+.sizeSmaller{
+	width: 450px;
+	height: 300px;
+}
+
+.sizeSmaller2{
+	width: 450px;
+	height: 200px;
+}
+
 
 .foot{
 	font-size: 10px;
 }
 
-.geral{
-	height: 400px;
-	margin-left: 10px;
-	margin-top: 10px;
-	margin-bottom: 10px;
+.nav{
+	order:0;
+	overflow:visible;
 }
 
-.menu_lateral{
-	width: 20%;
+.tam{width: 80px;}
+.tamSmall{
+	width: 50px;
+	background-color: #E8E8E8;
 }
 
-.dados{
-	width: 77%;
+#rifa{
+	width: 200px;
 }
 
-.dados_usuario{
-	width: 48%;
-	height: 380px;
-	margin-left: 10px;
-	margin-top: 10px;
-	margin-bottom: 10px;
+#vendR{
+	width: 200px;
 }
 
-.espacamento{
-	margin-top: 20px;
+#rifa2{
+	width: 800px;
 }
-
-.cadastro{
-
-	width: 80%;
-	margin-left: 90px;
-	margin-top: 10px;
-	margin-bottom: 10px;
-}
-
-.t_span{width: 100px;}
