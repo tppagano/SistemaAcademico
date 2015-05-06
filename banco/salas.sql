@@ -45,7 +45,7 @@ CREATE TABLE professor (
 
 CREATE TABLE disciplina (
     cod VARCHAR(10) NOT NULL,
-    nome VARCHAR(20),
+    nome VARCHAR(20) NOT NULL,
     carga_horaria FLOAT,
     semestre INT,
     CONSTRAINT pk_disciplina PRIMARY KEY (cod)
