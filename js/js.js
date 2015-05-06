@@ -24,12 +24,3 @@ function pavilhao(){
 				
 	return flag;
 }
-
-
-function addsms(id,sms){
-	id.innerHTML = "<div class='alert alert-danger' role='alert'>"+sms+"</div>";
-}
-
-function sair(f){
-	document.getElementById(f).submit();
-}

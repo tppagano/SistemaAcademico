@@ -44,8 +44,8 @@ CREATE TABLE professor (
 
 
 CREATE TABLE disciplina (
-    cod INTEGER NOT NULL,
-    nome INTEGER,
+    cod VARCHAR(10) NOT NULL,
+    nome VARCHAR(20),
     carga_horaria FLOAT,
     semestre INT,
     CONSTRAINT pk_disciplina PRIMARY KEY (cod)
@@ -61,14 +61,6 @@ CREATE TABLE professor (
     CONSTRAINT fk_area FOREIGN KEY (id_area) REFERENCES area (id)
 )ENGINE=InnoDB  DEFAULT CHARSET=latin1;
 
-CREATE TABLE usuario (
-    login VARCHAR(20) NOT NULL,
-    senha VARCHAR(200),
-    CONSTRAINT pk_professor PRIMARY KEY (login)
-)ENGINE=InnoDB  DEFAULT CHARSET=latin1;
-
-INSERT INTO usuario (login,senha) VALUES ('u1','senha');
-select login,senha from usuario where login = "u1" and senha = "senha";
 
 select * from sala;
 
