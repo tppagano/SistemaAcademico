@@ -14,16 +14,16 @@
 	*/
 	include_once ("controle_acesso.php");
 	$c = new Controle_acesso();
-	if(isset($_POST["pav"]) && $c -> passou_pela_pagina_anterior("pav")){
+	if(isset($_POST["pdel"]) && $c -> passou_pela_pagina_anterior("pav")){
 
 		// incluindo o arquivo do banco de dados
 		include_once ("banco/banco.php");
 		// instanciando a classe do banco
 		$b = new database();
 		// pegando o nome e tirando os espaços no inicio e no fim com a funcao "trim"
-		$nome = trim($_POST["pav"]);
+		$nome_del = trim($_POST["pdel"]);
 		// chamando a função query da classe banco para adicionar ao banco de dados
-		$b -> query("INSERT INTO pavilhao (nome_pavilhao) VALUES ('$nome')");
+		$b -> query("delete from pavilhao where nome_pavilhao = '$nome_del'");
 		
 		/** 
 				Deleta a session, fazendo com que a pessoas não possa acessar outra vez 
@@ -32,6 +32,6 @@
 		$c -> destuir_passagen();
 
 		echo "<meta HTTP-EQUIV='Refresh' CONTENT='0;URL = interface_pavilhao.php'>";
-		echo "<script>alert('Pavilhao adicionado com sucesso')</script>";
+		echo "<script>alert('Pavilhao Excluido com sucesso')</script>";
 	}else echo "<meta HTTP-EQUIV='Refresh' CONTENT='0;URL = index.php'>";
 ?>|

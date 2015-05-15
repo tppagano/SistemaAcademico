@@ -1,0 +1,75 @@
+.container {
+	margin-top: 20px;
+    display: table;
+    vertical-align: middle;
+}
+.left{
+	float: left;
+}
+.right{
+	float: right;
+}
+
+.top{margin-top: 50px;}
+
+.topElementos{margin-top: 20px;}
+
+.size{
+	width: 450px;
+	height: 600px;
+}
+.ph{width: 450px;}
+
+.sizeSmall{
+	width: 450px;
+	height: 300px;
+}
+.little{
+	width: 100px;
+	height: 34px;	
+}
+.sizeNomes{
+	width: 100px;
+}
+
+.sizeTable{
+	width: 800px;
+}
+
+.sizeSmaller{
+	width: 450px;
+	height: 300px;
+}
+
+.sizeSmaller2{
+	width: 450px;
+	height: 200px;
+}
+
+
+.foot{
+	font-size: 10px;
+}
+
+.nav{
+	order:0;
+	overflow:visible;
+}
+
+.tam{width: 80px;}
+.tamSmall{
+	width: 50px;
+	background-color: #E8E8E8;
+}
+
+#rifa{
+	width: 200px;
+}
+
+#vendR{
+	width: 200px;
+}
+
+#rifa2{
+	width: 800px;
+}

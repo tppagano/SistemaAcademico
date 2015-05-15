@@ -3,7 +3,7 @@ function verificaLogin(){
   var check = true;
   sms = "";
   if(document.getElementById("siape").value == ""){
-		sms += "Digite o siape!<br>";
+		sms += "Digite o siape!</br>";
   	check = false;
 	}
   

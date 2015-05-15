@@ -1,38 +1,22 @@
 <header style = "margin-left: 10px">
 	<ul class="nav nav-tabs">
 		<li role="presentation" class="dropdown">
-			<a href="#" role="button" aria-expanded="false">Principal</a>
+			<a href="home.php" role="button" aria-expanded="false">Principal</a>
 		</li>
 		<li role="presentation" class="dropdown">
 			<a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-expanded="false">
-				Básico <span class="caret"></span>
+				Basico <span class="caret"></span>
 			</a>
-			
-			
 			<ul class="dropdown-menu" role="menu">
 				<li><a href="interface_pavilhao.php">Pavilhão</a></li>
-				<li><a href="#">Sala</a></li>
-				<li><a href="#">Professor</a></li>
-				<li><a href="#">Categoria</a></li>
-				<li><a href="#">Area de Conhecimento</a></li>
-				<li><a href="#">Semestre</a></li>	
+				<li><a href="salas.php">Sala</a></li>
+				<li><a href="interface_professor.php">Professor</a></li>
+				<li><a href="interface_disciplina.php">Disciplina</a></li>
+				<li><a href="interface_cadSala.php">Categoria</a></li>
+				<li><a href="area_conhecimento.php">Area de Conhecimento</a></li>
+				<li><a href="interface_semestre.php">Semestre</a></li>	
 			</ul>
 		</li>
-		
-		
-		<li role="presentation" class="dropdown">
-			<a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-expanded="false">
-				Disciplinas <span class="caret"></span>
-			</a>
-			
-			
-			<ul class="dropdown-menu" role="menu">
-				<li><a href="interface_disciplina.php">Adicionar Disciplina</a></li>
-				<li><a href="interface_alterar_disciplina.php">Alterar Disciplina</a></li>
-				<li><a href="interface_remover_disciplina.php">Remover Disciplina</a></li>
-			</ul>
-		</li>
-		
 
 		<li role="presentation" class="dropdown">
 			<a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-expanded="false">
@@ -44,6 +28,19 @@
 			</ul>
 		</li>
 		
+			<li role="presentation" class="dropdown">
+				<a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-expanded="false">
+					Meu Perfil <span class="caret"></span>
+					<ul class="dropdown-menu" role="menu">
+					
+				</ul>
+				</a>
+				<ul class="dropdown-menu" role="menu">
+					<form action="sair.php" id = "out" method="POST">
+						<li><a style = "margin-left: 20px" onclick="sair('out')">Sair</a></li>
+					</form>
+				</ul>
+			</li>	
 	</ul>
 </header>
 
