@@ -35,6 +35,18 @@
 	margin-bottom: 10px;
 }
 
+.sizeNomes{
+	width: 100px;
+}
+
+.sizeMedio{
+	width: 350px;
+}
+
+.sizePequeno{
+	width: 160px;
+}
+
 .espacamento{
 	margin-top: 20px;
 }
@@ -48,3 +60,5 @@
 }
 
 .t_span{width: 100px;}
+
+.table{}

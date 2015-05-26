@@ -1,13 +1,19 @@
 <?php
 
-$c -> pagina_anterior("pav");
-		include_once("banco/banco.php"); 
-        $b = new Database();
+include_once("banco/banco.php");
+$b = new Database();
 
 
-if(isset($_POST["nova_sigla"])) Select("update area set sigla='$_POST[nova_sigla]' where nome='$_POST[area_antiga]'");
- Select("update area set nome='$_POST[nova_area]' where nome='$_POST[area_antiga]'");
- 
+
+if (isset($_GET["nova_sigla"])) {
+
+
+    $sql_terminalidade = "update area set sigla_area='$_GET[nova_sigla]' where id_area='$_GET[area_antiga]'"; //insei
+    $b->query($sql_terminalidade);
+}
+
+$sql_terminalidade = "update area set nome_area='$_GET[nova_area]' where id_area='$_GET[area_antiga]'"; //insei
+$b->query($sql_terminalidade);
 
 
 echo"    <meta HTTP-EQUIV='refresh' CONTENT='0; URL=area_conhecimento.php'>";

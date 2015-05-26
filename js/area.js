@@ -23,6 +23,14 @@ jQuery(document).ready(function ($) {
     });
 });
 
+function busca_area(area){
+    if(area!=""){
+    window.location='interface_consulta_turma.php?area='+area;
+    }else{
+        alert("SELECIONE UMA ÁREA VÁLIDA");
+    }
+}
+
 function busca_aluno(str){
    
     
@@ -145,6 +153,8 @@ function tipoUsuario(tipo) {
 
 function excluir_area(str) {
 
+   x=confirm("Tem certeza que dezeja excluir esta área de conhecimento?")
+    if(x){
     var link = str;
     var equalPosition = link.indexOf('#'); //Get the position of '='
     var str = link.substring(equalPosition + 1); //Split the string and get the number.
@@ -174,8 +184,9 @@ function excluir_area(str) {
             }
         }
 
-        xmlhttp.open("GET", "excluir.php?q=" + str, true);
+        xmlhttp.open("GET", "excluir_area.php?q=" + str, true);
         xmlhttp.send();
+    }
     }
 }
 function cadastra_term() {
@@ -214,7 +225,8 @@ function cadastra_term() {
     }
 }
 function cadastra_area() {
-
+ x=confirm("Tem certeza que dezeja excluir esta área de conhecimento?")
+    if(x){
     var str = document.getElementById("area_nome").value;
     var sigla = document.getElementById("area_sigla").value;
 
@@ -246,6 +258,7 @@ function cadastra_area() {
         xmlhttp.open("GET", "cadastra_area.php?q=" + str+"&s="+sigla, true);
         xmlhttp.send();
     }
+    }
 }
 function alterar(str) {
 
@@ -255,15 +268,51 @@ function alterar(str) {
             "<input type='submit' value='ALTERAR'>";
 
 }
-function alterar_area(area) {
+
+area_antiga="";
+function alterar_area(a) {
     
-      document.getElementById("area_altera").innerHTML = " <label>Digite o novo nome da Terminalidade e click em <b>ALTERAR</b><br> Alterar: "+area+"<br><br></label>\n\
-             <input type='text' name='nova_area' value='Digite o novo nome da área' onfocus="+"this.value='';"+">" +
-             "<input type='text' name='nova_sigla' value='Digite o novo nome da sigla' onfocus="+"this.value='';"+">" +
-            "<input type='hidden' name='area_antiga' value='"+area+"'>"+         
-            "<input type='submit' value='ALTERAR'>";
+    
+            $('#white_content').css("display","block")
+            document.getElementById('white_content').style.display = 'block';
+             document.getElementById('black_overlay').style.display = 'block';
+ area_antiga=a;
+
+}
+
+function finaliza_alterar_area(){
+       
+    var str = document.getElementById("nova_area").value;
+    var sigla = document.getElementById("nova_sigla").value;
+
+    if (str == "") {
+
+        document.getElementById("prog").innerHTML = "";
+        return;
+    } else {
+
+        if (window.XMLHttpRequest) {
+            // code for IE7+, Firefox, Chrome, Opera, Safari
+            xmlhttp = new XMLHttpRequest();
+
+        } else {
+            // code for IE6, IE5
+            xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+
+        }
+        xmlhttp.onreadystatechange = function () {
+            if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+
+                                window.location.reload();
 
 
+            }
+        }
+
+        xmlhttp.open("GET", "altera_area.php?nova_area="+str+"&nova_sigla="+sigla+"&area_antiga="+area_antiga, true);
+        xmlhttp.send();
+    }
+    
 }
 
 

@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 	 
 class Database {
 	
@@ -7,7 +7,7 @@ class Database {
 	function __construct(){
 		try{
 			// ALTERAR AQUI OS PARAMETROS DO BANCO
-			$this -> pdo =  new PDO("mysql:host = localhost; dbname = salas","root","root");
+			$this -> pdo =  new PDO("mysql:host = localhost; dbname = salas","root","");
 			$this -> pdo->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);		
 			$stmt = $this -> pdo->prepare("use salas;");
 			$this -> pdo -> setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
@@ -25,7 +25,10 @@ class Database {
 		}catch(PDOException $e){
         	if ($e->errorInfo[1] == 1062){
             	echo"<script type='text/javascript'> alert('Esse E-mail já existe');</script>";
-				echo "<meta HTTP-EQUIV='Refresh' CONTENT='0;URL = index1.php'>";
+				echo "<meta HTTP-EQUIV='Refresh' CONTENT='0;URL = home.php'>";
+			} else if ($e->errorInfo[1] == 1451){
+				echo"<script type='text/javascript'> alert('Não foi possível excluir: dependência entre registros');</script>";
+				echo "<meta HTTP-EQUIV='Refresh' CONTENT='0;URL = home.php'>";
         	}else echo "</br>".$e->getMessage()." query";
 			die($e);
 		}	

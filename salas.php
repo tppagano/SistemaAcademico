@@ -1,4 +1,4 @@
-<?php
+﻿<?php
     
     include_once("controle_acesso.php");
     $c = new controle_acesso();
@@ -23,20 +23,20 @@
                         <option>Selecione</option>
                         <?php
                             
-                            $sql="SELECT id, nome FROM pavilhao ORDER BY nome";
+                            $sql="SELECT id_pavilhao, nome_pavilhao FROM pavilhao ORDER BY nome_pavilhao";
                             $stmt = $b ->busca($sql);
                             while($rs = $stmt->fetch(PDO::FETCH_OBJ)){
-                                echo "<option>".$rs -> nome."</option>";
+                                echo "<option>".$rs -> nome_pavilhao."</option>";
                             }
                        ?>
                     </select><br>
                     Categoria: <select class="form-control" id="cat">
                         <option>Selecione</option>
                         <?php
-                            $sql="SELECT id, nome FROM categoria_sala ORDER BY nome";
+                            $sql="SELECT id_categoria_sala,nome_categoria_sala FROM categoria_sala ORDER BY nome_categoria_sala";
                             $stmt = $b ->busca($sql);
                             while($rs = $stmt->fetch(PDO::FETCH_OBJ)){
-                                echo "<option>".$rs -> nome."</option>";
+                                echo "<option>".$rs ->nome_categoria_sala."</option>";
                             }
                        ?>
                     </select><br>

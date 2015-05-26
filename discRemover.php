@@ -12,9 +12,9 @@
 		$cod = trim($_POST["cod"]);
 		// chamando a função query da classe banco para adicionar ao banco de dados
 		
-		$consulta = $b -> busca("select * from disciplina where cod='$cod';");
+		$consulta = $b -> busca("select * from disciplina where cod_disciplina='$cod';");
 		if($rs = $consulta->fetch(PDO::FETCH_OBJ)){
-			$b -> query("delete from disciplina where cod='$cod';");
+			$b -> query("delete from disciplina where cod_disciplina='$cod';");
 			echo"<script type='text/javascript'> alert('Disciplina removida com sucesso');</script>";
 		}else{
 			echo"<script type='text/javascript'> alert('Código da Disciplina não encontrado');</script>";

@@ -12,9 +12,14 @@
 		$nome = trim($_POST["nome"]);
 		$cod = trim($_POST["cod"]);
 		$carga = trim($_POST["carga"]);
-		$semestre = trim($_POST["semestre"]);
+		$area = trim($_POST["area"]);
 		// chamando a função query da classe banco para adicionar ao banco de dados
-		$b -> query("INSERT INTO disciplina (nome,cod,carga_horaria,semestre) VALUES ('$nome','$cod',$carga,$semestre)");
+		$consulta = $b -> busca("select * from area where sigla_area='$area';");
+		while($rs = $consulta->fetch(PDO::FETCH_OBJ)){ 
+				$id_area=$rs -> id_area;
+				$b -> query("INSERT INTO disciplina (nome_disciplina,cod_disciplina,carga_horaria_disciplina,id_area) VALUES ('$nome','$cod',$carga,$id_area)");
+			break;
+		}
 		echo"<script type='text/javascript'> alert('Disciplina inserida com sucesso');</script>";
 		echo "<meta HTTP-EQUIV='Refresh' CONTENT='0;URL = index.php'>";
 	}else {

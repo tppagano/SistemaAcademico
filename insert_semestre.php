@@ -1,4 +1,14 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<?php
+	
+	include_once("controle_acesso.php");
+	$c = new controle_acesso();
+	if(!($c -> esta_logado())) echo "<meta HTTP-EQUIV='Refresh' CONTENT='0;URL = index.php'>";
+	else {
+		include_once("banco/banco.php");
+		$b = new Database();
+
+?>
 <html>
 <head>
 	<meta content="text/html; charset=utf-8" http-equiv="content-type">
@@ -9,17 +19,11 @@
 
 
 <?php
-	
-		// incluindo o arquivo do banco de dados
-		include ("banco/banco.php");
-
 		// instanciando a classe do banco
-		$b = new database();
 		// pegando o nome e tirando os espaços no inicio e no fim com a funcao "trim"
 		$semestre = trim($_POST["sem"]);
-		$disciplina = trim($_POST["disciplina"]);
 		// chamando a função query da classe banco para adicionar ao banco de dados
-		$b -> query("UPDATE disciplina SET semestre = '$semestre' WHERE cod= '$disciplina';");
+		$b -> query("INSERT INTO semestre (nome_semestre) VALUES ('$semestre');");
 	
 ?>
 <script>
@@ -28,3 +32,7 @@
 </script> 
 </body>
 </html>
+
+<?php
+	}
+?>

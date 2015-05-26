@@ -12,14 +12,21 @@
 		$nome = trim($_POST["nome"]);
 		$cod = trim($_POST["cod"]);
 		$carga = trim($_POST["carga"]);
-		$semestre = trim($_POST["semestre"]);
-		// chamando a função query da classe banco para adicionar ao banco de dados
-		$consulta = $b -> busca("select * from disciplina where cod='$cod';");
+		$area=trim($_POST["area"]);
+		// verifica se realmente existe o código e a area informada
+		$consulta = $b -> busca("select * from disciplina where cod_disciplina='$cod';");
+		$consulta2 = $b -> busca("select * from area where sigla_area='$area';");
 		while($rs = $consulta->fetch(PDO::FETCH_OBJ)){
-			$b -> query("update disciplina set nome='$nome', carga_horaria='$carga', semestre='$semestre' where cod='$cod';");
-			break;
+			if($rs2 = $consulta2->fetch(PDO::FETCH_OBJ)){
+			    $id_area=$rs2 -> id_area;
+				$b -> query("update disciplina set nome_disciplina='$nome', carga_horaria_disciplina='$carga', id_area=$id_area where cod_disciplina='$cod';");
+				break;
+			}else{
+				echo"<script type='text/javascript'> alert('A Área informada não existe');</script>";
+				echo "<meta HTTP-EQUIV='Refresh' CONTENT='0;URL = index.php'>";
+			}
 		}
-		$consulta = $b -> busca("select * from disciplina where cod='$cod';");
+		$consulta = $b -> busca("select * from disciplina where cod_disciplina='$cod';");
 		if($rs = $consulta->fetch(PDO::FETCH_OBJ)){
 			echo"<script type='text/javascript'> alert('Disciplina alterada com sucesso');</script>";
 		}else{

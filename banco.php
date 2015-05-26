@@ -2,7 +2,8 @@
 
 $host= 'localhost';
 $bd= 'root';
-$senhabd= 'q1w2e3r4';
+//$senhabd= 'q1w2e3r4';
+$senhabd='';
 $database = "salas";
 	
 function conectaBanco ()

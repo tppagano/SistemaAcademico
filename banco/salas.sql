@@ -1,3 +1,7 @@
+CREATE  DATABASE IF NOT EXISTS salas;
+
+USE salas;
+
 CREATE TABLE pavilhao (
     id_pavilhao INT NOT NULL AUTO_INCREMENT,
     nome_pavilhao VARCHAR(30),
@@ -39,7 +43,6 @@ CREATE TABLE professor (
 );
 
 
-
 CREATE TABLE disciplina (
     cod_disciplina VARCHAR(10) NOT NULL,
     nome_disciplina VARCHAR(30) NOT NULL,
@@ -69,23 +72,30 @@ CREATE TABLE turma(
 );
 
 
-
-CREATE TABLE horario_turma(
-	id_horario_turma int not null auto_increment,
-	data_horario_turma DATE not null,
-	horario TIME not null,
-	primary key(id_horario_turma)
+CREATE TABLE dia_semana(
+	id_dia_semana INT NOT NULL AUTO_INCREMENT,
+	nome_dia_semana VARCHAR(15) NOT NULL,
+	primary key(id_dia_semana)
 );
 
 CREATE TABLE turma_sala(
 	id_turma_sala int not null auto_increment,
 	id_turma int not null,
 	id_sala int not null,
-	id_horario_turma int not null,
 	primary key(id_turma_sala),
 	foreign key(id_turma) references turma (id_turma),
-	foreign key(id_sala) references sala (id_sala),
-	foreign key(id_horario_turma) references horario_turma (id_horario_turma)
+	foreign key(id_sala) references sala (id_sala)
+);
+
+CREATE TABLE horario_turma(
+	id_horario_turma int not null auto_increment,
+	id_dia_semana INT NOT NULL,
+	horario_inicial TIME not null,
+	horario_final TIME not null,
+	id_turma_sala int not null,
+	primary key(id_horario_turma),
+	foreign key(id_dia_semana) REFERENCES dia_semana (id_dia_semana),
+	foreign key(id_turma_sala) REFERENCES turma_sala (id_turma_sala)
 );
 
 CREATE TABLE `usuario` (
@@ -95,19 +105,4 @@ CREATE TABLE `usuario` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 
-insert into usuario (
-   login
-  ,senha
-) VALUES (
-   'root' -- login - IN varchar(20)
-  ,'root'  -- senha - IN varchar(200)
-)
-
-INSERT INTO semestre (nome_semestre) values ('20142');
-INSERT INTO pavilhao (nome_pavilhao) values ('pav1');
-INSERT INTO pavilhao (nome_pavilhao) values ('pav2');
-insert into area (nome_area,sigla_area) values ('Area Computacao','SECOMP');
-insert into categoria_sala (nome_categoria_sala) values ('lab');
-insert into sala (numero_sala,capacidade_sala,id_categoria_sala,id_pavilhao) values (102,50,1,1);
-insert into professor (siape_professor,id_area,tel_professor,nome_professor) values ('123',1,'3621','Pagano');
-
+source insert.sql
